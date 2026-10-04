@@ -1,319 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Caroline Gichango— IT Support & Cybersecurity</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --blue: #2979FF;
-      --cyan: #00E5FF;
-      --blue-dim: #1a1f2e;
-      --bg: #0d1117;
-      --bg2: #13192a;
-      --bg3: #1a2236;
-      --border: rgba(41, 121, 255, 0.18);
-      --border-cyan: rgba(0, 229, 255, 0.18);
-      --text: #e6edf3;
-      --text-muted: #8b949e;
-      --font-mono: 'Space Mono', monospace;
-      --font-body: 'DM Sans', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 15px;
-      line-height: 1.7;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Grid background */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(41,121,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(41,121,255,0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Glow blob */
-    body::after {
-      content: '';
-      position: fixed;
-      top: -200px; left: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(41,121,255,0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
-
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(13,17,23,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
-    }
-    .nav-inner {
-      max-width: 900px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      height: 56px;
-    }
-    .nav-logo {
-      font-family: var(--font-mono);
-      font-size: 14px; color: var(--cyan);
-      letter-spacing: 0.05em;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--blue); }
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-    .nav-links a {
-      font-size: 13px; color: var(--text-muted);
-      text-decoration: none; font-family: var(--font-mono);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--cyan); }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 20px; }
-
-    
-    .hero {
-      padding: 6rem 0 4rem;
-      animation: fadeUp 0.7s ease both;
-    }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--font-mono); font-size: 12px;
-      color: var(--cyan); background: rgba(0,229,255,0.07);
-      border: 1px solid var(--border-cyan);
-      padding: 5px 14px; border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
-    .blink { animation: blink 1.2s step-end infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-    .hero h1 {
-      font-family: var(--font-mono); font-size: clamp(32px, 6vw, 58px);
-      font-weight: 700; line-height: 1.1; margin-bottom: 0.5rem;
-    }
-    .hero h1 .name { color: var(--text); }
-    .hero h1 .accent { color: var(--blue); }
-    .hero-sub {
-      font-size: 16px; color: var(--text-muted); max-width: 520px;
-      margin: 1rem 0 2rem; line-height: 1.75;
-    }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      font-family: var(--font-mono); font-size: 13px;
-      padding: 10px 22px; border-radius: 4px;
-      cursor: pointer; text-decoration: none;
-      transition: all 0.2s; display: inline-block;
-    }
-    .btn-primary {
-      background: var(--blue); color: #fff; border: 1px solid var(--blue);
-    }
-    .btn-primary:hover { background: #1a5fe8; }
-    .btn-ghost {
-      background: transparent; color: var(--cyan);
-      border: 1px solid var(--border-cyan);
-    }
-    .btn-ghost:hover { background: rgba(0,229,255,0.07); }
-
-    .hero-stats {
-      display: flex; gap: 2rem; margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-    .stat-item { }
-    .stat-num { font-family: var(--font-mono); font-size: 26px; font-weight: 700; color: var(--blue); }
-    .stat-lbl { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-
-
-    section { padding: 4rem 0; }
-    .section-head { margin-bottom: 2rem; }
-    .section-tag {
-      font-family: var(--font-mono); font-size: 11px;
-      color: var(--cyan); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 0.4rem;
-    }
-    .section-tag::before { content: '// '; color: var(--blue); }
-    .section-title { font-size: 22px; font-weight: 500; }
-
-  
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .about-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.25rem;
-      transition: border-color 0.2s;
-    }
-    .about-card:hover { border-color: rgba(41,121,255,0.4); }
-    .about-card-icon { font-size: 20px; margin-bottom: 0.5rem; }
-    .about-card-title { font-size: 13px; font-weight: 500; margin-bottom: 0.25rem; }
-    .about-card-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-    .about-bio {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem;
-    }
-    .about-bio p { color: var(--text-muted); font-size: 14px; line-height: 1.8; }
-
-    /* CERTS */
-    .cert-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
-    .cert-badge {
-      font-family: var(--font-mono); font-size: 12px;
-      background: rgba(41,121,255,0.1); color: var(--blue);
-      border: 1px solid rgba(41,121,255,0.3);
-      padding: 5px 14px; border-radius: 4px;
-    }
-
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-    .project-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-      display: flex; flex-direction: column;
-    }
-    .project-card:hover { border-color: rgba(41,121,255,0.5); transform: translateY(-2px); }
-    .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
-    .project-icon {
-      width: 38px; height: 38px; border-radius: 6px;
-      background: rgba(41,121,255,0.12); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; font-size: 18px;
-    }
-    .project-link { font-family: var(--font-mono); font-size: 12px; color: var(--cyan); text-decoration: none; }
-    .project-link:hover { text-decoration: underline; }
-    .project-title { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; }
-    .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      font-family: var(--font-mono); font-size: 11px;
-      background: rgba(0,229,255,0.07); color: var(--cyan);
-      border: 1px solid var(--border-cyan);
-      padding: 2px 9px; border-radius: 3px;
-    }
-
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-    .skill-group {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.25rem;
-    }
-    .skill-group-title {
-      font-family: var(--font-mono); font-size: 12px;
-      color: var(--cyan); margin-bottom: 1rem;
-      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
-    }
-    .skill-row { margin-bottom: 12px; }
-    .skill-meta { display: flex; justify-content: space-between; margin-bottom: 5px; }
-    .skill-name { font-size: 13px; }
-    .skill-pct { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
-    .skill-track { height: 4px; background: var(--bg3); border-radius: 99px; overflow: hidden; }
-    .skill-fill {
-      height: 100%; border-radius: 99px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      animation: growBar 1.2s ease both;
-    }
-    @keyframes growBar { from { width: 0 !important; } }
-
-    /* CONTACT */
-    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .contact-info {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem;
-    }
-    .contact-info p { font-size: 14px; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7; }
-    .contact-item {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 1rem;
-    }
-    .ci-icon {
-      width: 34px; height: 34px; border-radius: 6px; flex-shrink: 0;
-      background: rgba(41,121,255,0.1); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-mono); font-size: 12px; color: var(--blue);
-    }
-    .ci-label { font-size: 11px; color: var(--text-muted); }
-    .ci-val { font-size: 13px; }
-    .contact-form-wrap {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem;
-    }
-    .form-group { margin-bottom: 12px; }
-    .form-group label { font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 5px; font-family: var(--font-mono); }
-    .form-group input,
-    .form-group textarea {
-      width: 100%; background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 5px; padding: 9px 12px;
-      color: var(--text); font-family: var(--font-body); font-size: 13px;
-      outline: none; transition: border-color 0.2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus { border-color: var(--blue); }
-    .form-group textarea { resize: none; height: 90px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .submit-btn {
-      width: 100%; background: var(--blue); color: #fff; border: none;
-      padding: 10px; border-radius: 5px; font-family: var(--font-mono);
-      font-size: 13px; cursor: pointer; transition: background 0.2s;
-      margin-top: 4px;
-    }
-    .submit-btn:hover { background: #1a5fe8; }
-    .form-success {
-      display: none; text-align: center; padding: 1rem;
-      font-family: var(--font-mono); font-size: 13px; color: var(--cyan);
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border); padding: 2rem 1.5rem;
-      text-align: center; font-family: var(--font-mono); font-size: 12px;
-      color: var(--text-muted); position: relative; z-index: 1;
-    }
-    footer span { color: var(--blue); }
-
-    /* DIVIDER */
-    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up { animation: fadeUp 0.6s ease both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-
-    /* MOBILE */
-    @media (max-width: 640px) {
-      .about-grid, .contact-wrapper { grid-template-columns: 1fr; }
-      .hero-stats { gap: 1.25rem; }
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; gap: 1rem; position: absolute; top: 56px; left: 0; right: 0; background: var(--bg); padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); }
-      .hamburger { display: block; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Caroline Gichango | IT Support & Cybersecurity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#2979FF;--cyan:#00E5FF;--bg:#0d1117;--bg2:#13192a;--bg3:#1a2236;--border:rgba(41,121,255,.18);--border-cyan:rgba(0,229,255,.18);--text:#e6edf3;--text-muted:#8b949e;--font-mono:'Space Mono',monospace;--font-body:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.7;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(41,121,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(41,121,255,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(41,121,255,.08) 0%,transparent 70%);pointer-events:none;z-index:0}
+.container{max-width:900px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px}
+.nav-logo{font-family:var(--font-mono);font-size:14px;color:var(--cyan);letter-spacing:.05em;text-decoration:none}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-size:13px;color:var(--text-muted);text-decoration:none;font-family:var(--font-mono);transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:20px}
+.hero{padding:6rem 0 4rem;animation:fadeUp .7s ease both}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:12px;color:var(--cyan);background:rgba(0,229,255,.07);border:1px solid var(--border-cyan);padding:5px 14px;border-radius:4px;margin-bottom:1.5rem}
+.blink{animation:blink 1.2s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero h1{font-family:var(--font-mono);font-size:clamp(32px,6vw,58px);font-weight:700;line-height:1.1;margin-bottom:.5rem}
+.hero h1 .accent{color:var(--blue)}
+.hero-sub{font-size:16px;color:var(--text-muted);max-width:540px;margin:1rem 0 2rem;line-height:1.75}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--font-mono);font-size:13px;padding:10px 22px;border-radius:4px;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block}
+.btn-primary{background:var(--blue);color:#fff;border:1px solid var(--blue)}
+.btn-primary:hover{background:#1a5fe8}
+.btn-ghost{background:transparent;color:var(--cyan);border:1px solid var(--border-cyan)}
+.btn-ghost:hover{background:rgba(0,229,255,.07)}
+.hero-stats{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap}
+.stat-num{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--blue)}
+.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+section{padding:4rem 0}
+.section-head{margin-bottom:2rem}
+.section-tag{font-family:var(--font-mono);font-size:11px;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
+.section-tag::before{content:'// ';color:var(--blue)}
+.section-title{font-size:22px;font-weight:500}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-card,.about-bio,.skill-group,.contact-info,.contact-form-wrap,.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px}
+.about-card{padding:1.25rem;transition:border-color .2s}
+.about-card:hover{border-color:rgba(41,121,255,.4)}
+.about-card-icon{font-size:20px;margin-bottom:.5rem}
+.about-card-title{font-size:13px;font-weight:500;margin-bottom:.25rem}
+.about-card-text{font-size:13px;color:var(--text-muted);line-height:1.6}
+.about-bio{padding:1.5rem;margin-bottom:1rem}
+.about-bio p{color:var(--text-muted);font-size:14px;line-height:1.8}
+.cert-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem}
+.cert-badge{font-family:var(--font-mono);font-size:12px;background:rgba(41,121,255,.1);color:var(--blue);border:1px solid rgba(41,121,255,.3);padding:5px 14px;border-radius:4px}
+.cert-badge.pending{color:var(--text-muted);border-style:dashed;background:transparent}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;align-items:stretch}
+.project-card{padding:1.5rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.project-card:hover{border-color:rgba(41,121,255,.5);transform:translateY(-2px)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem}
+.project-icon{width:38px;height:38px;border-radius:6px;background:rgba(41,121,255,.12);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px}
+.project-link{font-family:var(--font-mono);font-size:12px;color:var(--cyan);text-decoration:none}
+.project-link:hover{text-decoration:underline}
+.project-title{font-size:15px;font-weight:500;margin-bottom:.4rem}
+.status{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);border:1px dashed var(--text-muted);border-radius:3px;padding:0 6px;margin-left:6px;vertical-align:middle}
+.project-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1;margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--font-mono);font-size:11px;background:rgba(0,229,255,.07);color:var(--cyan);border:1px solid var(--border-cyan);padding:2px 9px;border-radius:3px}
+.skills-key{font-size:13px;color:var(--text-muted);margin-bottom:1.25rem;display:flex;flex-wrap:wrap;gap:6px 16px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.skill-group{padding:1.25rem}
+.skill-group-title{font-family:var(--font-mono);font-size:12px;color:var(--cyan);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.skill-row{margin-bottom:14px}
+.skill-meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.skill-name{font-size:13px}
+.skill-note{font-size:12px;color:var(--text-muted);margin-top:2px}
+.lvl{font-family:var(--font-mono);font-size:10px;padding:1px 8px;border-radius:3px;white-space:nowrap;border:1px solid}
+.lvl.hands{color:var(--cyan);border-color:var(--border-cyan);background:rgba(0,229,255,.07)}
+.lvl.working{color:var(--blue);border-color:rgba(41,121,255,.35);background:rgba(41,121,255,.1)}
+.lvl.learning{color:var(--text-muted);border-color:var(--text-muted);border-style:dashed}
+.contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-info,.contact-form-wrap{padding:1.5rem}
+.contact-info p{font-size:14px;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.7}
+.contact-item{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.ci-icon{width:34px;height:34px;border-radius:6px;flex-shrink:0;background:rgba(41,121,255,.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;color:var(--blue)}
+.ci-label{font-size:11px;color:var(--text-muted)}
+.ci-val{font-size:13px;word-break:break-all}
+.form-group{margin-bottom:12px}
+.form-group label{font-size:12px;color:var(--text-muted);display:block;margin-bottom:5px;font-family:var(--font-mono)}
+.form-group input,.form-group textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:9px 12px;color:var(--text);font-family:var(--font-body);font-size:13px;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--blue)}
+.form-group textarea{resize:none;height:90px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.submit-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:10px;border-radius:5px;font-family:var(--font-mono);font-size:13px;cursor:pointer;transition:background .2s;margin-top:4px}
+.submit-btn:hover{background:#1a5fe8}
+.form-note{font-size:12px;color:var(--text-muted);margin-top:8px}
+footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--text-muted);position:relative;z-index:1}
+footer span{color:var(--blue)}
+.divider{border:none;border-top:1px solid var(--border)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:640px){
+.about-grid,.contact-wrapper{grid-template-columns:1fr}
+.hero-stats{gap:1.25rem}
+.nav-links{display:none}
+.nav-links.open{display:flex;flex-direction:column;gap:1rem;position:absolute;top:56px;left:0;right:0;background:var(--bg);padding:1rem 1.5rem;border-bottom:1px solid var(--border)}
+.hamburger{display:block}}
+</style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="#"><span>&gt;</span> yourname<span>.sec</span></a>
-    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+    <a class="nav-logo" href="#"><span>&gt;</span> caroline<span>.sec</span></a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="#about">about</a></li>
       <li><a href="#projects">projects</a></li>
@@ -325,214 +125,178 @@
 
 <div class="container">
 
-  <!-- HERO -->
   <section class="hero" id="home">
-    <div class="hero-tag">
-      <span class="blink">▋</span> Available for opportunities
-    </div>
-    <h1>
-      <span class="name">Hi, I'm</span><br>
-      <span class="accent">Caroline Gichango</span>
-    </h1>
-    <p class="hero-sub">
-      IT Support Specialist & Cybersecurity Analyst. I secure systems, resolve complex infrastructure challenges, and protect digital assets from evolving threats.
-    </p>
+    <div class="hero-tag"><span class="blink">▋</span> Open to opportunities</div>
+    <h1><span>Hi, I'm</span><br><span class="accent">Caroline Gichango</span></h1>
+    <p class="hero-sub">IT graduate building a career in IT support and security operations. I troubleshoot systems, analyse logs, and use home labs to learn how threats get detected.</p>
     <div class="hero-btns">
       <a href="#projects" class="btn btn-primary">View my work</a>
       <a href="#contact" class="btn btn-ghost">Get in touch</a>
     </div>
     <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">3+</div>
-        <div class="stat-lbl">Years in IT</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">50+</div>
-        <div class="stat-lbl">Incidents resolved</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">5</div>
-        <div class="stat-lbl">Certifications</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">10+</div>
-        <div class="stat-lbl">Tools mastered</div>
-      </div>
+      <div><div class="stat-num">BSc IT</div><div class="stat-lbl">Mount Kenya University, 2025</div></div>
+      <div><div class="stat-num">3</div><div class="stat-lbl">Internships</div></div>
+      <div><div class="stat-num">CCNA</div><div class="stat-lbl">Certified</div></div>
+      <div><div class="stat-num">4</div><div class="stat-lbl">Projects</div></div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <section id="about" class="fade-up delay-1">
+  <section id="about">
     <div class="section-head">
       <div class="section-tag">about me</div>
       <div class="section-title">Who I am</div>
     </div>
     <div class="about-bio">
-      <p>
-        I'm a passionate IT professional with hands-on experience in help desk support, network administration, and cybersecurity. I enjoy breaking down complex security challenges and building resilient systems that protect people and organizations. Currently based in Nairobi, Kenya — open to remote and on-site roles.
-      </p>
+      <p>I hold a BSc in Information Technology and have worked through internships in ICT support, IT support, and network records. My day-to-day experience covers first-line support, Active Directory and Microsoft 365 administration, and verifying customer records against fibre network maps. I'm now moving toward SOC and security analyst work, backed by hands-on labs and security training. Based in Nairobi, Kenya, and open to on-site and remote roles.</p>
     </div>
     <div class="about-grid">
       <div class="about-card">
         <div class="about-card-icon">🛡️</div>
         <div class="about-card-title">Security-first mindset</div>
-        <div class="about-card-text">I approach every system with a threat model in mind — from endpoint hardening to network segmentation.</div>
+        <div class="about-card-text">I look at systems the way an attacker would, then work out what logs and controls would catch it.</div>
       </div>
       <div class="about-card">
         <div class="about-card-icon">🔧</div>
         <div class="about-card-title">Hands-on problem solver</div>
-        <div class="about-card-text">From diagnosing hardware failures to configuring firewalls, I get things done fast and right.</div>
+        <div class="about-card-text">Real support work at EABL and Wananchi taught me to diagnose methodically and document what I find.</div>
       </div>
       <div class="about-card">
         <div class="about-card-icon">📡</div>
-        <div class="about-card-title">Network enthusiast</div>
-        <div class="about-card-text">Comfortable with routing, switching, VPNs, and monitoring traffic for anomalies at scale.</div>
+        <div class="about-card-title">Network foundations</div>
+        <div class="about-card-text">CCNA-trained in routing, switching, and the fundamentals behind how traffic moves and where it can be watched.</div>
       </div>
       <div class="about-card">
         <div class="about-card-icon">📚</div>
         <div class="about-card-title">Continuous learner</div>
-        <div class="about-card-text">The threat landscape evolves daily — so do I. Always studying, labbing, and earning new certs.</div>
+        <div class="about-card-text">Always labbing and studying, currently working through AWS AI/ML training.</div>
       </div>
     </div>
     <div class="cert-list">
-      <span class="cert-badge">CompTIA A+</span>
-      <span class="cert-badge">CompTIA Security+</span>
-      <span class="cert-badge">Google IT Support</span>
-      <span class="cert-badge">CEH (pursuing)</span>
-      <span class="cert-badge">AWS Cloud Practitioner</span>
+      <span class="cert-badge">CCNA</span>
+      <span class="cert-badge">Cisco Cyber Threat Management</span>
+      <span class="cert-badge">Security Analyst Track · CyberShujaa</span>
+      <span class="cert-badge">AI Essentials · Moringa School</span>
+      <span class="cert-badge pending">AWS AI/ML (in progress)</span>
     </div>
   </section>
 
   <hr class="divider">
 
-  <section id="projects" class="fade-up delay-2">
+  <section id="projects">
     <div class="section-head">
       <div class="section-tag">projects</div>
-      <div class="section-title">What I've built & secured</div>
+      <div class="section-title">What I've built</div>
     </div>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-top">
           <div class="project-icon">🔒</div>
-          <a href="#" class="project-link">github ↗</a>
+          <a href="#" class="project-link">github ↗</a><!-- TODO: add repo URL -->
         </div>
         <div class="project-title">Home lab SOC setup</div>
-        <p class="project-desc">Built a mini Security Operations Center using Splunk and Wazuh to monitor network traffic and detect anomalies in real time. Simulated attack scenarios to test detection rules.</p>
-        <div class="tags">
-          <span class="tag">Splunk</span>
-          <span class="tag">Wazuh</span>
-          <span class="tag">SIEM</span>
-          <span class="tag">Ubuntu</span>
-        </div>
+        <p class="project-desc">Built a small Security Operations Center lab with Splunk and Wazuh to collect logs, monitor activity, and practise spotting suspicious behaviour.</p>
+        <div class="tags"><span class="tag">Splunk</span><span class="tag">Wazuh</span><span class="tag">SIEM</span><span class="tag">Ubuntu</span></div>
       </div>
       <div class="project-card">
         <div class="project-top">
           <div class="project-icon">🖥️</div>
-          <a href="#" class="project-link">github ↗</a>
+          <a href="#" class="project-link">github ↗</a><!-- TODO: add repo URL -->
         </div>
         <div class="project-title">Help desk ticketing system</div>
-        <p class="project-desc">Deployed and customized an open-source ticketing system for a small business, cutting average ticket resolution time by 40% through automation and SLA policies.</p>
-        <div class="tags">
-          <span class="tag">osTicket</span>
-          <span class="tag">Linux</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">SLA</span>
-        </div>
+        <p class="project-desc">Set up and configured an open-source ticketing system to practise a full help desk workflow, including ticket categories, priorities, and SLA policies.</p>
+        <div class="tags"><span class="tag">osTicket</span><span class="tag">Linux</span><span class="tag">MySQL</span><span class="tag">SLA</span></div>
       </div>
       <div class="project-card">
         <div class="project-top">
-          <div class="project-icon">📋</div>
-          <a href="#" class="project-link">report ↗</a>
+          <div class="project-icon">🔍</div>
+          <a href="#" class="project-link">github ↗</a><!-- TODO: add repo URL -->
         </div>
-        <div class="project-title">Network vulnerability audit</div>
-        <p class="project-desc">Conducted a full vulnerability assessment on a 50-device network using Nessus and Nmap, producing a prioritized remediation report with actionable recommendations.</p>
-        <div class="tags">
-          <span class="tag">Nessus</span>
-          <span class="tag">Nmap</span>
-          <span class="tag">Pentest</span>
-          <span class="tag">CVE</span>
-        </div>
+        <div class="project-title">Log analyzer<span class="status">in progress</span></div>
+        <p class="project-desc">A tool that reads SSH and Windows event logs and flags brute-force login attempts, built and tested in my Kali VM lab.</p>
+        <div class="tags"><span class="tag">Log analysis</span><span class="tag">SSH</span><span class="tag">Windows Events</span><span class="tag">Kali</span></div>
       </div>
       <div class="project-card">
         <div class="project-top">
-          <div class="project-icon">🎣</div>
-          <a href="#" class="project-link">github ↗</a>
+          <div class="project-icon">📱</div>
+          <a href="#" class="project-link">github ↗</a><!-- TODO: add repo URL -->
         </div>
-        <div class="project-title">Phishing simulation campaign</div>
-        <p class="project-desc">Ran a phishing awareness campaign using GoPhish to test 30+ employees, followed by targeted training that improved click-through defense rates by 60%.</p>
-        <div class="tags">
-          <span class="tag">GoPhish</span>
-          <span class="tag">Social engineering</span>
-          <span class="tag">Training</span>
-        </div>
+        <div class="project-title">Personal Financial Management System</div>
+        <p class="project-desc">A full-stack mobile app for tracking personal finances, integrating M-Pesa and Sacco APIs, built with Flutter and Firebase.</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">M-Pesa API</span><span class="tag">Sacco API</span></div>
       </div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <section id="skills" class="fade-up delay-3">
+  <section id="skills">
     <div class="section-head">
       <div class="section-tag">skills</div>
-      <div class="section-title">Technical expertise</div>
+      <div class="section-title">Technical skills</div>
+    </div>
+    <div class="skills-key">
+      <span><span class="lvl hands">Hands-on</span> used in real work or a lab</span>
+      <span><span class="lvl working">Working</span> understand and have used it</span>
+      <span><span class="lvl learning">Learning</span> actively studying</span>
     </div>
     <div class="skills-grid">
       <div class="skill-group">
         <div class="skill-group-title">// IT support</div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Help desk</span><span class="skill-pct">90%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Help desk</span><span class="lvl hands">Hands-on</span></div>
+          <div class="skill-note">First-line support, EABL internship</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Active Directory</span><span class="skill-pct">80%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Active Directory / M365</span><span class="lvl hands">Hands-on</span></div>
+          <div class="skill-note">User and account administration, EABL</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Networking (TCP/IP)</span><span class="skill-pct">75%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Networking (TCP/IP)</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">CCNA coursework and labs</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Windows / Linux</span><span class="skill-pct">85%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Windows / Linux</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">Daily Windows use, Ubuntu and Kali labs</div>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">// Cybersecurity</div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Threat analysis</span><span class="skill-pct">70%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Threat analysis</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">Cisco Cyber Threat Management</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">SIEM / SOC ops</span><span class="skill-pct">65%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:65%"></div></div>
+          <div class="skill-meta"><span class="skill-name">SIEM / SOC ops</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">Home lab and Security Analyst Track</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Pen testing</span><span class="skill-pct">60%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:60%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Incident response</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">Security Analyst Track training</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Incident response</span><span class="skill-pct">72%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:72%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Pen testing</span><span class="lvl learning">Learning</span></div>
+          <div class="skill-note">Foundational labs in Kali</div>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">// Tools</div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Splunk / Wazuh</span><span class="skill-pct">70%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Splunk / Wazuh</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">Log ingestion and alerting in my SOC lab</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Nmap / Nessus</span><span class="skill-pct">75%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Wireshark</span><span class="lvl working">Working</span></div>
+          <div class="skill-note">Packet capture and traffic analysis</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Wireshark</span><span class="skill-pct">68%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:68%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Nmap / Nessus</span><span class="lvl learning">Learning</span></div>
+          <div class="skill-note">Basic scans in lab environments</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Azure / AWS</span><span class="skill-pct">55%</span></div>
-          <div class="skill-track"><div class="skill-fill" style="width:55%"></div></div>
+          <div class="skill-meta"><span class="skill-name">Azure / AWS</span><span class="lvl learning">Learning</span></div>
+          <div class="skill-note">AWS AI/ML training in progress</div>
         </div>
       </div>
     </div>
@@ -547,61 +311,21 @@
     </div>
     <div class="contact-wrapper">
       <div class="contact-info">
-        <p>Open to IT support roles, cybersecurity analyst positions, and freelance security engagements. Don't hesitate to reach out!</p>
-        <div class="contact-item">
-          <div class="ci-icon">@</div>
-          <div>
-            <div class="ci-label">Email</div>
-            <div class="ci-val">carolinegichango@gmail.com</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">in</div>
-          <div>
-            <div class="ci-label">LinkedIn</div>
-            <div class="ci-val">https://www.linkedin.com/in/caroline-gichango</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">gh</div>
-          <div>
-            <div class="ci-label">GitHub</div>
-            <div class="ci-val">github.com/gichango</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="ci-icon">📍</div>
-          <div>
-            <div class="ci-label">Location</div>
-            <div class="ci-val">Nairobi, Kenya</div>
-          </div>
-        </div>
+        <p>Looking for IT support, NOC, and junior security analyst roles, including trainee programmes. Reach out any time.</p>
+        <div class="contact-item"><div class="ci-icon">@</div><div><div class="ci-label">Email</div><div class="ci-val">carolinegichango@gmail.com</div></div></div>
+        <div class="contact-item"><div class="ci-icon">in</div><div><div class="ci-label">LinkedIn</div><div class="ci-val">linkedin.com/in/caroline-gichango</div></div></div>
+        <div class="contact-item"><div class="ci-icon">gh</div><div><div class="ci-label">GitHub</div><div class="ci-val">github.com/gichango</div></div></div>
+        <div class="contact-item"><div class="ci-icon">📍</div><div><div class="ci-label">Location</div><div class="ci-val">Nairobi, Kenya</div></div></div>
       </div>
       <div class="contact-form-wrap">
-        <div id="contact-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" id="fname" placeholder="Jane Doe" />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" id="femail" placeholder="jane@email.com" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Subject</label>
-            <input type="text" id="fsubject" placeholder="Job opportunity / collaboration" />
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="fmessage" placeholder="Hi, I'd like to discuss..."></textarea>
-          </div>
-          <button class="submit-btn" onclick="handleSubmit()">Send message →</button>
+        <div class="form-row">
+          <div class="form-group"><label for="fname">Name</label><input type="text" id="fname" placeholder="Jane Doe" /></div>
+          <div class="form-group"><label for="femail">Email</label><input type="email" id="femail" placeholder="jane@email.com" /></div>
         </div>
-        <div class="form-success" id="form-success">
-          ✓ Message sent — I'll get back to you soon!
-        </div>
+        <div class="form-group"><label for="fsubject">Subject</label><input type="text" id="fsubject" placeholder="Job opportunity / collaboration" /></div>
+        <div class="form-group"><label for="fmessage">Message</label><textarea id="fmessage" placeholder="Hi, I'd like to discuss..."></textarea></div>
+        <button class="submit-btn" onclick="handleSubmit()">Open in email app</button>
+        <p class="form-note">This opens your email app with the message ready to send.</p>
       </div>
     </div>
   </section>
@@ -609,39 +333,23 @@
 </div>
 
 <footer>
-  <div class="container">
-    built by <span>Caroline</span> · <span>2025</span> · Nairobi, Kenya
-  </div>
+  <div class="container">built by <span>Caroline</span> · <span>2026</span> · Nairobi, Kenya</div>
 </footer>
 
 <script>
-  function handleSubmit() {
-    const name = document.getElementById('fname').value.trim();
-    const email = document.getElementById('femail').value.trim();
-    const msg = document.getElementById('fmessage').value.trim();
-    if (!name || !email || !msg) { alert('Please fill in all required fields.'); return; }
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
-
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-        document.querySelector('.nav-links').classList.remove('open');
-      }
-    });
+function handleSubmit(){
+  const v=id=>document.getElementById(id).value.trim();
+  if(!v('fname')||!v('femail')||!v('fmessage')){alert('Please fill in your name, email, and message.');return;}
+  const subject=encodeURIComponent(v('fsubject')||'Portfolio enquiry');
+  const body=encodeURIComponent(v('fmessage')+'\n\nFrom: '+v('fname')+' ('+v('femail')+')');
+  window.location.href='mailto:carolinegichango@gmail.com?subject='+subject+'&body='+body;
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});document.querySelector('.nav-links').classList.remove('open');}
   });
-
-  // Fade-up on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+});
 </script>
-
 </body>
 </html>
