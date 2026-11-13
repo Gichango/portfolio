@@ -66,6 +66,19 @@ section{padding:4rem 0}
 .project-desc{font-size:13px;color:var(--text-muted);line-height:1.65;flex:1;margin-bottom:1rem}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-family:var(--font-mono);font-size:11px;background:rgba(0,229,255,.07);color:var(--cyan);border:1px solid var(--border-cyan);padding:2px 9px;border-radius:3px}
+.capabilities-grid,.education-grid,.certifications-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.capability-card,.timeline-card,.education-card,.certification-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.35rem}
+.capability-card h3,.education-card h3,.certification-card h3{font-size:14px;font-weight:500;margin-bottom:.45rem}
+.capability-card p,.timeline-card p,.education-card p,.certification-card p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.capability-card .tags,.timeline-card .tags{margin-top:1rem}
+.timeline{display:grid;gap:1rem}
+.timeline-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem}
+.timeline-role{font-size:15px;font-weight:500}
+.timeline-date{font-family:var(--font-mono);font-size:11px;color:var(--cyan)}
+.timeline-org{font-size:13px;color:var(--blue);margin-bottom:.5rem}
+.timeline-card ul{padding-left:1.15rem;color:var(--text-muted);font-size:13px;line-height:1.75}
+.timeline-card li{margin-bottom:.25rem}
+.edu-meta,.cert-meta{font-family:var(--font-mono);font-size:11px;color:var(--cyan);margin-bottom:.5rem}
 .skills-key{font-size:13px;color:var(--text-muted);margin-bottom:1.25rem;display:flex;flex-wrap:wrap;gap:6px 16px}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
 .skill-group{padding:1.25rem}
@@ -115,9 +128,12 @@ footer span{color:var(--blue)}
     <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="#about">about</a></li>
+      <li><a href="#capabilities">capabilities</a></li>
       <li><a href="#experience">experience</a></li>
       <li><a href="#projects">projects</a></li>
       <li><a href="#skills">skills</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#certifications">certifications</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
   </div>
@@ -146,38 +162,49 @@ footer span{color:var(--blue)}
   <section id="about">
     <div class="section-head">
       <div class="section-tag">about me</div>
-      <div class="section-title">Who I am</div>
+      <div class="section-title">My path in technology</div>
     </div>
     <div class="about-bio">
-      <p>I hold a BSc in Information Technology from Mount Kenya University and have gained practical exposure through internships at EABL, the Ministry of Tourism and Wildlife, and Wananchi Group. My experience includes first-line user support, hardware and software troubleshooting, printer and connectivity support, Microsoft 365 exposure, basic Active Directory administration at UBL, and validating customer and network records. I am building on my CCNA foundation and security analyst training as I develop toward networking and junior blue-team cybersecurity roles. Based in Nairobi, Kenya.</p>
+      <p>My interest in technology developed through my Bachelor of Science in Information Technology at Mount Kenya University, where I built a foundation in computer systems, networking and software development. I then gained practical workplace experience through ICT support and network-related internships at the Ministry of Tourism and Wildlife, East African Breweries Limited and Wananchi Group.</p>
+      <p style="margin-top:12px">Those experiences helped me understand the importance of reliable IT support, clear documentation and careful troubleshooting. Alongside that work, earning my CCNA strengthened my networking foundation and cybersecurity training introduced me to security monitoring and analysis. I am continuing to develop in these areas through Cisco's Cybersecurity Defense Analyst Career Path and personal projects. I am particularly interested in IT support, networking/NOC and entry-level blue-team opportunities.</p>
     </div>
     <div class="about-grid">
       <div class="about-card">
-        <div class="about-card-icon">🛡️</div>
-        <div class="about-card-title">Security-first mindset</div>
-        <div class="about-card-text">I look at systems the way an attacker would, then work out what logs and controls would catch it.</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🔧</div>
-        <div class="about-card-title">Hands-on problem solver</div>
-        <div class="about-card-text">Real support work at EABL and Wananchi taught me to diagnose methodically and document what I find.</div>
+        <div class="about-card-icon">🧰</div>
+        <div class="about-card-title">Practical support experience</div>
+        <div class="about-card-text">First-line troubleshooting, user assistance, printer support and documenting technical issues in workplace environments.</div>
       </div>
       <div class="about-card">
         <div class="about-card-icon">📡</div>
-        <div class="about-card-title">Network foundations</div>
-        <div class="about-card-text">CCNA-trained in routing, switching, and the fundamentals behind how traffic moves and where it can be watched.</div>
+        <div class="about-card-title">Networking foundation</div>
+        <div class="about-card-text">CCNA-certified with exposure to network troubleshooting, connectivity and fibre infrastructure records.</div>
       </div>
       <div class="about-card">
-        <div class="about-card-icon">📚</div>
-        <div class="about-card-title">Continuous learner</div>
-        <div class="about-card-text">Continuing to build my technical foundation through Cisco cybersecurity training and practical project work.</div>
+        <div class="about-card-icon">🛡️</div>
+        <div class="about-card-title">Growing security focus</div>
+        <div class="about-card-text">Building foundational blue-team knowledge through Cyber Shujaa and Cisco cybersecurity training.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">💻</div>
+        <div class="about-card-title">Learning by building</div>
+        <div class="about-card-text">Developing practical skills through application projects and a planned home security lab.</div>
       </div>
     </div>
-    <div class="cert-list">
-      <span class="cert-badge">CCNA</span>
-      <span class="cert-badge">Cisco Introduction to Cybersecurity</span>
-      <span class="cert-badge">Cyber Shujaa · Security Analyst Training</span>
-      <span class="cert-badge pending">Cisco Cybersecurity Defense Analyst Career Path · In Progress</span>
+  </section>
+
+  <hr class="divider">
+
+  <section id="capabilities">
+    <div class="section-head">
+      <div class="section-tag">what I can contribute</div>
+      <div class="section-title">Capabilities</div>
+    </div>
+    <div class="capabilities-grid">
+      <div class="capability-card"><h3>IT support & troubleshooting</h3><p>Assist users with hardware, software, printer and connectivity issues; carry out initial checks, document incidents and escalate issues that need higher-level access.</p><div class="tags"><span class="tag">First-line support</span><span class="tag">Incident documentation</span></div></div>
+      <div class="capability-card"><h3>User account support</h3><p>Carry out basic Active Directory tasks, including creating user accounts, resetting passwords and unlocking locked accounts.</p><div class="tags"><span class="tag">Active Directory basics</span><span class="tag">Account support</span></div></div>
+      <div class="capability-card"><h3>Networking support</h3><p>Apply networking fundamentals to connectivity troubleshooting and understand core TCP/IP, routing, switching and structured cabling concepts.</p><div class="tags"><span class="tag">CCNA</span><span class="tag">TCP/IP</span><span class="tag">Network troubleshooting</span></div></div>
+      <div class="capability-card"><h3>Cybersecurity foundations</h3><p>Apply foundational security knowledge from analyst training, including security monitoring concepts, packet analysis and introductory SIEM workflows.</p><div class="tags"><span class="tag">Wireshark</span><span class="tag">Splunk training</span><span class="tag">Blue team</span></div></div>
+      <div class="capability-card"><h3>Application development</h3><p>Build and refine small applications using PHP/MySQL and Flutter/Firebase, including a personal finance project with M-Pesa integration.</p><div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Flutter</span><span class="tag">Firebase</span></div></div>
     </div>
   </section>
 
@@ -188,23 +215,26 @@ footer span{color:var(--blue)}
       <div class="section-tag">experience</div>
       <div class="section-title">Practical experience</div>
     </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-title">Wananchi Group <span class="status">Internship</span></div>
-        <p class="project-desc">Worked with customer and network records, validating information and supporting the accuracy of fibre and network infrastructure data.</p>
+    <div class="timeline">
+      <article class="timeline-card">
+        <div class="timeline-head"><div class="timeline-role">Address & Cable Correction Intern</div><div class="timeline-date">JUNE 2026 – SEPTEMBER 2026</div></div>
+        <div class="timeline-org">Wananchi Group</div>
+        <ul><li>Reviewed and corrected customer address and network records to support accurate service and infrastructure information.</li><li>Validated customer details against fibre/network infrastructure records and cable mapping information.</li><li>Used network records and mapping information to help identify discrepancies and maintain accurate documentation.</li></ul>
         <div class="tags"><span class="tag">Network records</span><span class="tag">Data validation</span><span class="tag">Fibre infrastructure</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-title">EABL <span class="status">Internship</span></div>
-        <p class="project-desc">Provided first-line support to users, assisting with hardware, software, printer and connectivity issues. Supported the sales and warehouse teams with their order-tracking system, documented issues and escalated problems when access or permissions were required.</p>
-        <div class="tags"><span class="tag">User support</span><span class="tag">Troubleshooting</span><span class="tag">Microsoft 365 exposure</span><span class="tag">Documentation</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-title">Ministry of Tourism and Wildlife <span class="status">Attachment</span></div>
-        <p class="project-desc">Supported day-to-day ICT operations through first-line troubleshooting, printer and network support, basic equipment handling, and technical documentation while working with ICT staff to resolve user issues.</p>
-        <div class="tags"><span class="tag">ICT support</span><span class="tag">Printers</span><span class="tag">Networking</span><span class="tag">Asset handling</span></div>
-      </div>
-      </div>
+      </article>
+      <article class="timeline-card">
+        <div class="timeline-head"><div class="timeline-role">IT Support Intern</div><div class="timeline-date">OCTOBER 2025 – DECEMBER 2025</div></div>
+        <div class="timeline-org">East African Breweries Limited (EABL)</div>
+        <ul><li>Provided first-line IT support to more than 50 users, troubleshooting hardware, software, printer and network connectivity issues.</li><li>Assisted with setting up and configuring computers, printers and other ICT equipment.</li><li>Supported sales and warehouse teams using the CRM/order-tracking system and recorded issues for follow-up.</li><li>Documented incidents and escalated application or access issues that required additional permissions or specialist support.</li></ul>
+        <div class="tags"><span class="tag">IT support</span><span class="tag">Troubleshooting</span><span class="tag">CRM support</span><span class="tag">Documentation</span></div>
+      </article>
+      <article class="timeline-card">
+        <div class="timeline-head"><div class="timeline-role">ICT Support Intern (Attachment)</div><div class="timeline-date">MAY 2025 – AUGUST 2025</div></div>
+        <div class="timeline-org">Ministry of Tourism and Wildlife</div>
+        <ul><li>Provided first-line technical support to staff, assisting with desktop, software, printer and network-access issues.</li><li>Configured network printers and supported users with meeting-room equipment, including projectors, HDMI connections and collaboration tools.</li><li>Assisted with workstation maintenance, software updates, antivirus checks, ICT asset records and basic network troubleshooting.</li><li>Worked alongside ICT staff to investigate and resolve technical issues.</li></ul>
+        <div class="tags"><span class="tag">ICT support</span><span class="tag">Printer configuration</span><span class="tag">Networking</span><span class="tag">Asset records</span></div>
+      </article>
+    </div>
   </section>
 
   <hr class="divider">
@@ -269,7 +299,7 @@ footer span{color:var(--blue)}
         </div>
         <div class="skill-row">
           <div class="skill-meta"><span class="skill-name">Active Directory</span><span class="lvl working">Exposure</span></div>
-          <div class="skill-note">Practical exposure to basic administration tasks at UBL</div>
+          <div class="skill-note">Created user accounts, reset passwords and unlocked locked accounts</div>
         </div>
         <div class="skill-row">
           <div class="skill-meta"><span class="skill-name">Networking (TCP/IP)</span><span class="lvl working">Working</span></div>
@@ -318,6 +348,33 @@ footer span{color:var(--blue)}
           <div class="skill-note">Continuing to build technical problem-solving skills</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="education">
+    <div class="section-head">
+      <div class="section-tag">education</div>
+      <div class="section-title">Academic background</div>
+    </div>
+    <div class="education-grid">
+      <div class="education-card"><div class="edu-meta">2025</div><h3>Bachelor of Science in Information Technology</h3><p>Mount Kenya University</p><p style="margin-top:8px">Second Class Upper Division</p></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="certifications">
+    <div class="section-head">
+      <div class="section-tag">certifications & professional development</div>
+      <div class="section-title">Training and certifications</div>
+    </div>
+    <div class="certifications-grid">
+      <div class="certification-card"><div class="cert-meta">CERTIFICATION</div><h3>Cisco Certified Network Associate (CCNA)</h3><p>Networking foundation covering core networking concepts, routing, switching and network troubleshooting.</p></div>
+      <div class="certification-card"><div class="cert-meta">COMPLETED</div><h3>Cisco – Introduction to Cybersecurity</h3><p>Foundational cybersecurity concepts, common threats and security practices.</p></div>
+      <div class="certification-card"><div class="cert-meta">COMPLETED TRAINING</div><h3>Cyber Shujaa – Security Analyst Track</h3><p>Security analyst training delivered through the Cyber Shujaa programme.</p></div>
+      <div class="certification-card"><div class="cert-meta">IN PROGRESS</div><h3>Cisco – Cybersecurity Defense Analyst Career Path</h3><p>Continuing structured learning in defensive security and analyst skills, including introductory Splunk content.</p></div>
     </div>
   </section>
 
