@@ -115,6 +115,7 @@ footer span{color:var(--blue)}
     <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
     <ul class="nav-links">
       <li><a href="#about">about</a></li>
+      <li><a href="#experience">experience</a></li>
       <li><a href="#projects">projects</a></li>
       <li><a href="#skills">skills</a></li>
       <li><a href="#contact">contact</a></li>
@@ -127,7 +128,7 @@ footer span{color:var(--blue)}
   <section class="hero" id="home">
     <div class="hero-tag"><span class="blink">▋</span> Open to opportunities</div>
     <h1><span>Hi, I'm</span><br><span class="accent">Caroline Gichango</span></h1>
-    <p class="hero-sub">IT graduate building a career in IT support and security operations. I troubleshoot systems, analyse logs, and use home labs to learn how threats get detected.</p>
+    <p class="hero-sub">Recent Information Technology graduate with a CCNA certification and internship experience in first-line ICT support and networking environments. I enjoy troubleshooting technical issues, supporting users, and strengthening my cybersecurity skills through structured training and practical learning.</p>
     <div class="hero-btns">
       <a href="#projects" class="btn btn-primary">View my work</a>
       <a href="#contact" class="btn btn-ghost">Get in touch</a>
@@ -136,7 +137,7 @@ footer span{color:var(--blue)}
       <div><div class="stat-num">BSc IT</div><div class="stat-lbl">Mount Kenya University, 2025</div></div>
       <div><div class="stat-num">3</div><div class="stat-lbl">Internships</div></div>
       <div><div class="stat-num">CCNA</div><div class="stat-lbl">Certified</div></div>
-      <div><div class="stat-num">3</div><div class="stat-lbl">Projects, 2 in progress</div></div>
+      <div><div class="stat-num">2</div><div class="stat-lbl">Projects built / in development</div></div>
     </div>
   </section>
 
@@ -148,7 +149,7 @@ footer span{color:var(--blue)}
       <div class="section-title">Who I am</div>
     </div>
     <div class="about-bio">
-      <p>I hold a BSc in Information Technology and have worked through internships in ICT support, IT support, and network records. My day-to-day experience covers first-line support, Active Directory and Microsoft 365 administration, and verifying customer records against fibre network maps. I'm now moving toward SOC and security analyst work, backed by hands-on labs and security training. Based in Nairobi, Kenya, and open to on-site and remote roles.</p>
+      <p>I hold a BSc in Information Technology from Mount Kenya University and have gained practical exposure through internships at EABL, the Ministry of Tourism and Wildlife, and Wananchi Group. My experience includes first-line user support, hardware and software troubleshooting, printer and connectivity support, Microsoft 365 exposure, basic Active Directory administration at UBL, and validating customer and network records. I am building on my CCNA foundation and security analyst training as I develop toward networking and junior blue-team cybersecurity roles. Based in Nairobi, Kenya.</p>
     </div>
     <div class="about-grid">
       <div class="about-card">
@@ -169,15 +170,40 @@ footer span{color:var(--blue)}
       <div class="about-card">
         <div class="about-card-icon">📚</div>
         <div class="about-card-title">Continuous learner</div>
-        <div class="about-card-text">Always labbing and studying, currently working through AWS AI/ML training.</div>
+        <div class="about-card-text">Continuing to build my technical foundation through Cisco cybersecurity training and practical project work.</div>
       </div>
     </div>
     <div class="cert-list">
       <span class="cert-badge">CCNA</span>
-      <span class="cert-badge">Cisco Cyber Threat Management</span>
-      <span class="cert-badge">Security Analyst Track · CyberShujaa</span>
-      <span class="cert-badge">AI Essentials · Moringa School</span>
-      <span class="cert-badge pending">AWS AI/ML (in progress)</span>
+      <span class="cert-badge">Cisco Introduction to Cybersecurity</span>
+      <span class="cert-badge">Cyber Shujaa · Security Analyst Training</span>
+      <span class="cert-badge pending">Cisco Cybersecurity Defense Analyst Career Path · In Progress</span>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-tag">experience</div>
+      <div class="section-title">Practical experience</div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-title">EABL <span class="status">Internship</span></div>
+        <p class="project-desc">Provided first-line support to users, assisting with hardware, software, printer and connectivity issues. Supported the sales and warehouse teams with their order-tracking system, documented issues and escalated problems when access or permissions were required.</p>
+        <div class="tags"><span class="tag">User support</span><span class="tag">Troubleshooting</span><span class="tag">Microsoft 365 exposure</span><span class="tag">Documentation</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Ministry of Tourism and Wildlife <span class="status">Attachment</span></div>
+        <p class="project-desc">Supported day-to-day ICT operations through first-line troubleshooting, printer and network support, basic equipment handling, and technical documentation while working with ICT staff to resolve user issues.</p>
+        <div class="tags"><span class="tag">ICT support</span><span class="tag">Printers</span><span class="tag">Networking</span><span class="tag">Asset handling</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Wananchi Group <span class="status">Internship</span></div>
+        <p class="project-desc">Worked with customer and network records, validating information and supporting the accuracy of fibre and network infrastructure data.</p>
+        <div class="tags"><span class="tag">Network records</span><span class="tag">Data validation</span><span class="tag">Fibre infrastructure</span></div>
+      </div>
     </div>
   </section>
 
@@ -195,25 +221,25 @@ footer span{color:var(--blue)}
           <a href="https://github.com/Gichango/metrowealth" class="project-link" target="_blank" rel="noopener">github ↗</a>
         </div>
         <div class="project-title">Personal Financial Management System</div>
-        <p class="project-desc">A full-stack mobile app for tracking personal finances, integrating M-Pesa and Sacco APIs, built with Flutter and Firebase.</p>
-        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">M-Pesa API</span><span class="tag">Sacco API</span></div>
+        <p class="project-desc">A personal finance management application built with Flutter and Firebase. It includes personal finance features and an M-Pesa integration implemented as part of the app. The project explores how digital tools can support everyday financial management.</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">M-Pesa integration</span><span class="tag">Personal finance</span></div>
       </div>
       <div class="project-card">
         <div class="project-top">
           <div class="project-icon">🖥️</div>
           <a href="https://github.com/Gichango/IT-Helpdesk-Ticketing-System" class="project-link" target="_blank" rel="noopener">github ↗</a>
         </div>
-        <div class="project-title">IT Helpdesk ticketing system</div>
-        <p class="project-desc">Setting up an open-source ticketing system to practise the help desk workflow, including ticket categories, priorities, and SLA policies.</p>
-        <div class="tags"><span class="tag">osTicket</span><span class="tag">Linux</span><span class="tag">MySQL</span><span class="tag">SLA</span></div>
+        <div class="project-title">IT Helpdesk Ticketing System <span class="status">In development</span></div>
+        <p class="project-desc">A custom IT support ticketing application built with PHP, MySQL and Bootstrap. It includes user registration and login, role-based dashboards, ticket submission and ticket status management. I am continuing to refine the interface and workflow.</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span><span class="tag">XAMPP</span></div>
       </div>
       <div class="project-card">
         <div class="project-top">
           <div class="project-icon">🔒</div>
         </div>
-        <div class="project-title">Home lab SOC setup<span class="status">in progress</span></div>
-        <p class="project-desc">Building a small Security Operations Center lab with Splunk and Wazuh to collect logs and practise spotting suspicious activity.</p>
-        <div class="tags"><span class="tag">Splunk</span><span class="tag">Wazuh</span><span class="tag">SIEM</span><span class="tag">Ubuntu</span></div>
+        <div class="project-title">Home SOC Lab <span class="status">Planned</span></div>
+        <p class="project-desc">A planned blue-team learning project. I intend to build a small lab to practise log collection, security monitoring and alert investigation, then document the setup and findings as I complete each stage.</p>
+        <div class="tags"><span class="tag">Blue team</span><span class="tag">Log analysis</span><span class="tag">SIEM learning</span></div>
       </div>
     </div>
   </section>
@@ -226,9 +252,9 @@ footer span{color:var(--blue)}
       <div class="section-title">Technical skills</div>
     </div>
     <div class="skills-key">
-      <span><span class="lvl hands">Hands-on</span> used in real work or a lab</span>
-      <span><span class="lvl working">Working</span> understand and have used it</span>
-      <span><span class="lvl learning">Learning</span> actively studying</span>
+      <span><span class="lvl hands">Hands-on</span> used in a work or project task</span>
+      <span><span class="lvl working">Exposure</span> used or encountered in a work setting</span>
+      <span><span class="lvl learning">Training</span> developing through coursework</span>
     </div>
     <div class="skills-grid">
       <div class="skill-group">
@@ -238,54 +264,58 @@ footer span{color:var(--blue)}
           <div class="skill-note">First-line support, EABL internship</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Active Directory / M365</span><span class="lvl hands">Hands-on</span></div>
-          <div class="skill-note">User and account administration, EABL</div>
+          <div class="skill-meta"><span class="skill-name">Microsoft 365</span><span class="lvl working">Exposure</span></div>
+          <div class="skill-note">Used in an internship support environment; continuing to strengthen administration skills</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Active Directory</span><span class="lvl working">Exposure</span></div>
+          <div class="skill-note">Practical exposure to basic administration tasks at UBL</div>
         </div>
         <div class="skill-row">
           <div class="skill-meta"><span class="skill-name">Networking (TCP/IP)</span><span class="lvl working">Working</span></div>
           <div class="skill-note">CCNA coursework and labs</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Windows / Linux</span><span class="lvl working">Working</span></div>
-          <div class="skill-note">Daily Windows use, Ubuntu and Kali labs</div>
+          <div class="skill-meta"><span class="skill-name">Windows / Linux fundamentals</span><span class="lvl learning">Developing</span></div>
+          <div class="skill-note">Windows user support; building Linux lab experience</div>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">Cybersecurity</div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Threat analysis</span><span class="lvl working">Working</span></div>
-          <div class="skill-note">Cisco Cyber Threat Management</div>
+          <div class="skill-meta"><span class="skill-name">Security monitoring concepts</span><span class="lvl learning">Training</span></div>
+          <div class="skill-note">Cisco and Cyber Shujaa security analyst training</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">SIEM / SOC ops</span><span class="lvl working">Working</span></div>
-          <div class="skill-note">Security Analyst Track training</div>
+          <div class="skill-meta"><span class="skill-name">SIEM / SOC fundamentals</span><span class="lvl learning">Learning</span></div>
+          <div class="skill-note">Cisco Cybersecurity Defense Analyst Career Path (in progress)</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Incident response</span><span class="lvl working">Working</span></div>
-          <div class="skill-note">Security Analyst Track training</div>
+          <div class="skill-meta"><span class="skill-name">Incident response concepts</span><span class="lvl learning">Training</span></div>
+          <div class="skill-note">Developing foundational knowledge through security analyst training</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Pen testing</span><span class="lvl learning">Learning</span></div>
-          <div class="skill-note">Foundational labs in Kali</div>
+          <div class="skill-meta"><span class="skill-name">Firewalls and network security</span><span class="lvl learning">Training</span></div>
+          <div class="skill-note">Foundational exposure through cybersecurity learning</div>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-title">Tools</div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Splunk / Wazuh</span><span class="lvl learning">Learning</span></div>
-          <div class="skill-note">Setting up in my SOC lab</div>
+          <div class="skill-meta"><span class="skill-name">Splunk</span><span class="lvl learning">Training</span></div>
+          <div class="skill-note">Introductory exposure through Cisco cybersecurity training</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Wireshark</span><span class="lvl working">Working</span></div>
-          <div class="skill-note">Packet capture and traffic analysis</div>
+          <div class="skill-meta"><span class="skill-name">Wireshark</span><span class="lvl learning">Training</span></div>
+          <div class="skill-note">Learning packet inspection and traffic analysis</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Nmap / Nessus</span><span class="lvl learning">Learning</span></div>
-          <div class="skill-note">Basic scans in lab environments</div>
+          <div class="skill-meta"><span class="skill-name">Honeypots</span><span class="lvl learning">Training</span></div>
+          <div class="skill-note">Introductory exposure through security analyst learning</div>
         </div>
         <div class="skill-row">
-          <div class="skill-meta"><span class="skill-name">Azure / AWS</span><span class="lvl learning">Learning</span></div>
-          <div class="skill-note">AWS AI/ML training in progress</div>
+          <div class="skill-meta"><span class="skill-name">Python / scripting</span><span class="lvl learning">Developing</span></div>
+          <div class="skill-note">Continuing to build technical problem-solving skills</div>
         </div>
       </div>
     </div>
